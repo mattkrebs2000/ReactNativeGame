@@ -1,7 +1,8 @@
 import React, { useEffect, useState } from 'react';
-import {StatusBar, StyleSheet, View, LogBox} from 'react-native';
+import { StyleSheet, View, LogBox} from 'react-native';
 import Entities from './src/entities';
 import {GameEngine} from 'react-native-game-engine';
+import Systems from './src/systems';
 
 LogBox.ignoreAllLogs(true)
 
@@ -22,8 +23,10 @@ const App = () => {
           }}
           style={styles.gameContainer}
           entities={Entities()}
-          running={running}>
-          <StatusBar hidden={true} />
+          running={running}
+          systems={Systems}
+          >
+         
         </GameEngine>
       </View>
     );
