@@ -3,7 +3,7 @@ import {View, Image} from 'react-native';
 import {array, object, string} from 'prop-types';
 import Matter from 'matter-js';
 
-const water = require('../assets/ocean.png');
+const water = require("../assets/ocean.png");
 
 const Floor = props => {
   const width = props.size[0];
