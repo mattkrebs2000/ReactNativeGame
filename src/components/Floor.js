@@ -1,9 +1,10 @@
 import React from 'react';
-import {View, Image} from 'react-native';
+import {View, Image, ImageBackground} from 'react-native';
 import {array, object, string} from 'prop-types';
 import Matter from 'matter-js';
 
 const water = require("../assets/ocean.png");
+const water2 = require("../assets/ocean.png");
 
 const Floor = props => {
   const width = props.size[0];
@@ -11,6 +12,7 @@ const Floor = props => {
   const x = props.body.position.x - width / 2;
   const y = props.body.position.y - height / 2;
   return (
+    <View>
     <View
       style={[
         {
@@ -23,10 +25,28 @@ const Floor = props => {
         },
       ]}>
       <Image
-        style={{width: width, height: height}}
+        style={{width: width, height: height, top:-100, zIndex:.7}}
         source={water}
         resizeMode="stretch"
       />
+      </View>
+      <View
+      style={[
+        {
+          position: 'absolute',
+          left: x,
+          top: y,
+          width: width,
+          height: height,
+          backgroundColor: props.color || 'pink',
+        },
+      ]}>
+      <Image
+      style={{width: width, height: height*1.5, zIndex:.9}}
+      source={water2}
+      resizeMode="stretch"
+    />
+    </View>
     </View>
   );
 };

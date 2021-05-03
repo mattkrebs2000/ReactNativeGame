@@ -3,7 +3,7 @@ import {Image} from 'react-native';
 import {array, object, string} from 'prop-types';
 import Matter from 'matter-js';
 
-const airplane = require('../assets/airplane.png');
+const airplane = require('../assets/newplane.png');
 
 const Plane = props => {
   const width = props.size[0];
@@ -14,10 +14,11 @@ const Plane = props => {
     <Image
       style={{
         position: 'absolute',
-        left: x,
+        right: "75%",
         top: y,
-        width: width,
-        height: height,
+        width: width*2,
+        height: height*1.5,
+        zIndex: 1,
       }}
       resizeMode="stretch"
       source={airplane}
