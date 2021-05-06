@@ -1,7 +1,10 @@
 import React from 'react';
-import {View} from 'react-native';
 import {array, object, string} from 'prop-types';
+import {View, Image} from 'react-native';
 import Matter from 'matter-js';
+import FastImage from 'react-native-fast-image';
+
+const clouds = require("../assets/clouds.png");
 
 const Ceiling = props => {
   const width = props.size[0];
@@ -9,7 +12,7 @@ const Ceiling = props => {
   const x = props.body.position.x - width / 2;
   const y = props.body.position.y - height / 2;
   return (
-    <View
+    <Image
       style={[
         {
           position: 'absolute',
@@ -17,9 +20,10 @@ const Ceiling = props => {
           top: y,
           width: width,
           height: height,
-          backgroundColor: props.color || 'pink',
         },
       ]}
+      source={clouds}
+      resizeMode="stretch"
     />
   );
 };

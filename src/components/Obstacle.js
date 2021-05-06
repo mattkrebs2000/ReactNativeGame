@@ -1,29 +1,29 @@
 import React from 'react';
-import {View} from 'react-native';
 import {array, object, string} from 'prop-types';
 import Matter from 'matter-js';
-const RandomNumber = Math.floor(Math.random() * 65) + 5 ;
+import FastImage from 'react-native-fast-image';
+import {Image} from 'react-native';
 
-console.log(RandomNumber)
+const rocket = require('../assets/rocket.png');
+
 const Obstacle = props => {
   const width = props.size[0];
   const height = props.size[1];
   const x = props.body.position.x - width / 2;
   const y = props.body.position.y - height / 2;
-
   return (
-    <View
+    <Image
       style={[
         {
           position: 'absolute',
           left: x,
-          top: RandomNumber + "%",
-          width: width/2,
-          borderRadius: 20,
+          top: y,
+          width: width,
           height: height,
-          backgroundColor: "gold"
         },
       ]}
+      source={rocket}
+      resizeMode="stretch"
     />
   );
 };
